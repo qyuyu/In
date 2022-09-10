@@ -27,6 +27,7 @@ public class CardSwipeAdapter extends RecyclerView.Adapter<CardSwipeAdapter.Card
         notifyDataSetChanged();
     }
 
+    // 2. Adapter overrides:
     @NonNull
     @Override
     public CardSwipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -49,9 +50,6 @@ public class CardSwipeAdapter extends RecyclerView.Adapter<CardSwipeAdapter.Card
     public int getItemCount() {
         return articles.size();
     }
-
-    // 2. Adapter overrides:
-    // TODO
 
     // 3. CardSwipeViewHolder:
     public static class CardSwipeViewHolder extends RecyclerView.ViewHolder {

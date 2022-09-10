@@ -52,7 +52,9 @@ public class SaveFragment extends Fragment {
                             }
                         });
 
+        // avoid high coupling
         savedNewsAdapter.setItemCallback(new SavedNewsAdapter.ItemCallback() {
+            // anonymous inner class
             @Override
             public void onOpenDetails(Article article) {
                 Log.d("onOpenDetails", article.toString());

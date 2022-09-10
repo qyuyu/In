@@ -18,8 +18,8 @@ import java.util.List;
 
 public class SavedNewsAdapter extends RecyclerView.Adapter<SavedNewsAdapter.SavedNewsViewHolder> {
 
+    // to avoid high coupling
     interface ItemCallback {
-
         void onOpenDetails(Article article);
         void onRemoveFavorite(Article article);
     }

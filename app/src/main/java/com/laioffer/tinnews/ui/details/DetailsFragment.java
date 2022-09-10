@@ -32,7 +32,8 @@ public class DetailsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        // SearchFragmentDirections/SaveFragmentDirections set article
+        // DetailsFragmentArgs get article from the bundle through Safe Args
         Article article = DetailsFragmentArgs.fromBundle(getArguments()).getArticle();
         binding.detailsTitleTextView.setText(article.title);
         binding.detailsAuthorTextView.setText(article.author);
