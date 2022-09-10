@@ -72,15 +72,20 @@ public class NewsRepository {
 
     public LiveData<Boolean> favoriteArticle(Article article) {
         MutableLiveData<Boolean> resultLiveData = new MutableLiveData<>();
+        // multi-threading
+        // database operation is not recommended to do on the main thread. Instead, it will crash.
         new FavoriteAsyncTask(database, resultLiveData).execute(article);
         return resultLiveData;
     }
 
     public LiveData<List<Article>> getAllSavedArticles() {
+        // do in the UI main thread because of LiveData itself supports multi-threading
+        // and LiveData will listen to the database change, observe and update the change
         return database.articleDao().getAllArticles();
     }
 
     public void deleteSavedArticle(Article article) {
+        // do in the background thread
         AsyncTask.execute(() -> database.articleDao().deleteArticle(article));
     }
 

@@ -18,6 +18,8 @@ public class NewsViewModelFactory implements ViewModelProvider.Factory {
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+        // tells Google whether we created a specific ViewModel before
+        // so that it can maintain the state of the view model
         if (modelClass.isAssignableFrom(HomeViewModel.class)) {
             return (T) new HomeViewModel(repository);
         } else if (modelClass.isAssignableFrom(SearchViewModel.class)) {
